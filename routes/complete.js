@@ -38,7 +38,7 @@ router.get("/", function (req, res, next) {
   var totalpages = null;
   var des = null;
   getPageContent(URL + page).then($ => {
-    console.log(URL + page)
+    // console.log(URL + page)
     // console.log(
     //   "http://www.nettruyen.com/tim-truyen?status=-1&sort=15&page=" + page
     // );
@@ -53,7 +53,7 @@ router.get("/", function (req, res, next) {
           idnovel = $(this).attr('href');
           // idnovel = idnovel.slice(1)
            idnovel = idnovel.slice(idnovel.lastIndexOf("/") + 1);
-          console.log(idnovel);
+          // console.log(idnovel);
         });
       $(this)
         .find(".chapter")
@@ -61,7 +61,7 @@ router.get("/", function (req, res, next) {
           lasterchapter = $(this).text();
           var chapterid = $(this).attr('href');
           idchapter = chapterid.slice(chapterid.search(idnovel + '/') + (idnovel.length + 1));
-          console.log(idchapter)
+          // console.log(idchapter)
         });
       $(this)
         .find("span")
@@ -107,9 +107,9 @@ router.get("/", function (req, res, next) {
 
       return res.send(JSON.stringify(novels));
     }
-    console.log(totalpage)
+    // console.log(totalpage)
     totalpages = totalpage.slice(totalpage.search('page=') + 5);
-    console.log(totalpages);
+    // console.log(totalpages);
     var novels = {
       url: URL + page,
       page: page,
